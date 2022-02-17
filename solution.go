@@ -22,9 +22,11 @@ const (
 func CalcSquare(sideLen float64, sidesNum ShapeSides) float64 {
 	switch sidesNum {
 	case SidesCircle:
-		return math.Pi * 2.0 * sideLen
+		// should be (math.Pi * sideLen * sideLen)
+		return math.Pi * sideLen * sideLen / 2.0
 	case SidesTriangle:
-		return sideLen * 3.0
+		// should be (sideLen * sidelen * math.Sqrt(3.0) / 4.0)
+		return sideLen * math.Sqrt(3.0) / 4.0
 	case SidesSquare:
 		return sideLen * sideLen
 	default:
